@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable name="movie" type="com.example.binding.newschool.Movie" />
+        <variable name="trailerHint" type="String" />
+        <variable name="handlers" type="com.example.binding.newschool.ClickHandlers"/>
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.binding.newschool.DataBindingActivity">
+
+        <EditText
+            android:hint="@{movie.name}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <EditText
+            android:hint="@{movie.posterUrl}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <EditText
+            android:id="@+id/et3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:trailerHint="@{trailerHint}"
+            />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:imageUrl="@{movie.posterUrl}"
+            app:placeholder="@{@drawable/placeholder}"
+            app:loadError="@{@drawable/image_load_error}"
+            tools:src="@drawable/ic_launcher_background"
+            />
+        <!--see: https://developer.android.com/topic/libraries/data-binding/index.html#custom_setters-->
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:imageUrl="@{movie.posterUrl2}"
+            app:placeholder="@{@drawable/placeholder}"
+            app:loadError="@{@drawable/image_load_error}"
+            tools:src="@drawable/ic_launcher_background"
+            />
+        <!--see: https://developer.android.com/topic/libraries/data-binding/index.html#custom_setters-->
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invert Image"
+            android:onClick="@{(view) -> handlers.changeModelData(view, movie)}"
+            />
+            <!-- Valid forms:
+            android:onClick="@{handlers::onClickChangeModelData}"
+              see: https://developer.android.com/topic/libraries/data-binding/index.html#method_references
+            or
+            android:onClick="@{(view) -> handlers.onClickChangeModelData(view)}"
+              see: https://developer.android.com/topic/libraries/data-binding/index.html#listener_bindings
+            -->
+
+        <Button
+            android:id="@+id/startOldSchoolDataBinding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Old School Data Binding"
+            android:onClick="onClickStartOldSchoolDataBinding"
+            />
+    </LinearLayout>
+    </ScrollView>
+</layout>
