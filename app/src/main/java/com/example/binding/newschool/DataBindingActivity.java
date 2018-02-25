@@ -49,7 +49,16 @@ public class DataBindingActivity extends AppCompatActivity {
 //        movie.setTrailerURL("another Trailer URL");
     }
 
-    @BindingAdapter({"imageUrl", "placeholder", "loadError"})
+    @BindingAdapter({"android:src"})
+    public static void loadImageSrc(ImageView view, String imageUrl){
+        Picasso.with(view.getContext())
+                .load(imageUrl)
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.image_load_error)
+                .into(view);
+    }
+
+    @BindingAdapter({"android:src", "android:placeholder", "android:error"})
     public static void loadImage(ImageView view, String imageUrl, Drawable placeholder, Drawable loadError){
         Picasso.with(view.getContext())
                 .load(imageUrl)

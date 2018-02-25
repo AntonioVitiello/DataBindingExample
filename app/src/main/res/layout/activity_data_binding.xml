@@ -20,12 +20,12 @@
         tools:context="com.example.binding.newschool.DataBindingActivity">
 
         <EditText
-            android:hint="@{movie.name}"
+            android:hint="@{movie.name, default=NAME_PLACEHOLDER}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
         <EditText
-            android:hint="@{movie.posterUrl}"
+            android:hint="@{movie.posterUrl, default=POSTERURL_PLACEHOLDER}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
@@ -34,27 +34,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:trailerHint="@{trailerHint}"
+            tools:hint="DEFAULT HINT"
             />
 
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            app:imageUrl="@{movie.posterUrl}"
-            app:placeholder="@{@drawable/placeholder}"
-            app:loadError="@{@drawable/image_load_error}"
-            tools:src="@drawable/ic_launcher_background"
+            android:src="@{movie.posterUrl, default=@drawable/ic_launcher_background}"
             />
         <!--see: https://developer.android.com/topic/libraries/data-binding/index.html#custom_setters-->
+        <!--app:imageUrl="@{movie.posterUrl}"-->
+        <!--app:placeholder="@{@drawable/placeholder}"-->
+        <!--app:loadError="@{@drawable/image_load_error}"-->
 
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            app:imageUrl="@{movie.posterUrl2}"
-            app:placeholder="@{@drawable/placeholder}"
-            app:loadError="@{@drawable/image_load_error}"
-            tools:src="@drawable/ic_launcher_background"
+            android:src="@{movie.posterUrl2, default=@drawable/ic_launcher_background}"
+            android:placeholder="@{@drawable/placeholder}"
+            android:error="@{@drawable/image_load_error}"
             />
         <!--see: https://developer.android.com/topic/libraries/data-binding/index.html#custom_setters-->
+        <!--android:srcbd="@{movie.posterUrl2}"-->
 
         <Button
             android:layout_width="wrap_content"
