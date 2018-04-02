@@ -15,26 +15,26 @@
         <activity
             android:name=".oldschool.OldSchoolActivity"
             android:label="Old School Data Binding"
-            android:launchMode="singleInstance">
-        </activity>
+            android:launchMode="singleInstance" />
         <activity
             android:name=".butterknife.ButterKnifeActivity"
             android:label="Butter Knife Data Binding"
-            android:launchMode="singleInstance">
-        </activity>
+            android:launchMode="singleInstance" />
         <activity
             android:name=".newschool.DataBindingActivity"
             android:label="New Data Binding"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance" />
+        <activity
+            android:name="com.example.databinding.IncludeLayoutActivity"
+            android:label="DataBinding with layout include" />
+        <activity android:name="com.example.twoway.databinding.withlistener.TwoWayDataBindingActivity" />
+        <activity android:name="com.example.twoway.databinding.TwoWayDataBindingActivity" />
+        <activity android:name="com.example.spinner.SpinnerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.example.databinding.IncludeLayoutActivity"
-            android:label="DataBinding with layout include">
         </activity>
     </application>
 
